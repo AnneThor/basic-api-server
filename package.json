@@ -4,7 +4,7 @@
   "description": "node/express api server preforming CRUD with mongoDB",
   "main": "index.js",
   "scripts": {
-    "test": "jest --coverage --watch",
+    "test": "jest --coverage",
     "start": "node index.js",
     "lint": "eslint src/*.js"
   },
