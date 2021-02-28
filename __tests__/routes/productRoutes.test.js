@@ -62,7 +62,7 @@ describe('Testing Middleware on PRODUCT routes', () => {
     req = { name: "newName!" };
     mockRequest.put('/product/0')
       .then(reply => {
-        expect(reply.status).toBe(201);
+        expect(reply.status).toBe(200);
         expect(products.storage.length).toEqual(5);
         expect(reply.body).toEqual({ id: 0, data: { name: "newName!" } });
       })

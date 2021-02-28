@@ -62,7 +62,7 @@ describe('Testing Middleware on CATEGORY routes', () => {
     req = { name: "newName!" };
     mockRequest.put('/category/0')
       .then(reply => {
-        expect(reply.status).toBe(201);
+        expect(reply.status).toBe(200);
         expect(categories.storage.length).toEqual(5);
         expect(reply.body).toEqual({ id: 0, data: { name: "newName!" } });
       })
