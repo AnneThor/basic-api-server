@@ -4,7 +4,9 @@
   "description": "node/express api server preforming CRUD with mongoDB",
   "main": "index.js",
   "scripts": {
-    "test": "jest --coverage --watch"
+    "test": "jest --coverage --watch",
+    "start": "node index.js",
+    "lint": "eslint src/*.js"
   },
   "repository": {
     "type": "git",
@@ -18,7 +20,11 @@
   "homepage": "https://github.com/AnneThor/basic-api-server#readme",
   "dependencies": {
     "dotenv": "^8.2.0",
-    "express": "^4.17.1",
-    "jest": "^26.6.3"
+    "express": "^4.17.1"
+  },
+  "devDependencies": {
+    "eslint": "^7.20.0",
+    "jest": "^26.6.3",
+    "supertest": "^6.1.3"
   }
 }
