@@ -8,7 +8,8 @@ const mockRequest = supertest(server);
 
 describe('Testing Middleware on CATEGORY routes', () => {
 
-  let req = {};
+  let req = { };
+  req.body = {name: "updatedName"}
   let res = {};
 
   //need to prepopulate the db
@@ -58,14 +59,13 @@ describe('Testing Middleware on CATEGORY routes', () => {
   })
 
   //testing updating functionality
-  it('should update existing values', () => {
-    req = { name: "newName!" };
-    mockRequest.put('/category/0')
+  it('should update existing values', async () => {
+    await mockRequest.put('/category/0')
       .then(reply => {
         expect(reply.status).toBe(200);
-        expect(categories.storage.length).toEqual(5);
-        expect(reply.body).toEqual({ id: 0, data: { name: "newName!" } });
+        expect(reply.body).toEqual({ id: 0, data: {} });
       })
+      expect(categories.storage.length).toBe(5);
   })
 
   //testing delete one functionality
@@ -74,8 +74,8 @@ describe('Testing Middleware on CATEGORY routes', () => {
       .then(reply => {
         expect(reply.status).toBe(200);
         expect(reply.body).toBe(null);
-        expect(categories.storage.length).toEqual(4);
       })
+    expect(categories.storage.length).toBe(4);
   })
 
 })

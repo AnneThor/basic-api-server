@@ -58,13 +58,12 @@ describe('Testing Middleware on PRODUCT routes', () => {
   })
 
   //testing updating functionality
-  it('should update existing values', () => {
-    req = { name: "newName!" };
-    mockRequest.put('/product/0')
+  it('should update existing values', async () => {
+    await mockRequest.put('/product/0')
       .then(reply => {
         expect(reply.status).toBe(200);
         expect(products.storage.length).toEqual(5);
-        expect(reply.body).toEqual({ id: 0, data: { name: "newName!" } });
+        expect(reply.body).toEqual({ id: 0, data: {} });
       })
   })
 

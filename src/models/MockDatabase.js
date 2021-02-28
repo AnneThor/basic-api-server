@@ -33,12 +33,9 @@ class MockDatabase {
 
   deleteOne(id) {
     let obj = this.storage.find(record => record.id === id);
-    if (obj === undefined) {
-      return null
-    }
     let index = this.storage.indexOf(obj);
     this.storage.splice(index,1);
-    return !this.storage.find(record => record.id === id) ? null : 'Please try again'
+    return null;
   }
 
 }
